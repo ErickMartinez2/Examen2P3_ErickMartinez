@@ -1,6 +1,7 @@
 #ifndef CIUDADANO_H
 #define CIUDADANO_H
 #include <string>
+#include "Quirk.h"
 using namespace std;
 
 class Ciudadano {
@@ -14,6 +15,7 @@ class Ciudadano {
 		string likes;
 		string dislikes;
 		string sangre;
+		Quirk* quirk;
 	public:
 		Ciudadano();
 		Ciudadano(string, int, string, int, string, string, string, string, string);
@@ -35,6 +37,8 @@ class Ciudadano {
 		void setDislikes(string);
 		string getSangre();
 		void setSangre(string);
+		Quirk* getQuirk();
+		virtual void setQuirk(Quirk*);
 };
 
 #endif

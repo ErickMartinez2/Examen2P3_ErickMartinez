@@ -34,10 +34,10 @@ void Estudiante::setClassroom(string pclassroom) {
 	classroom = pclassroom;
 }
 
-/*string Estudiante::getMaestro() {
+Maestro* Estudiante::getMaestro() {
 	return maestro;
 }
 
-void Estudiante::setMaestro(string pmaestro) {
+void Estudiante::setMaestro(Maestro* pmaestro) {
 	maestro = pmaestro;
-}*/
+}

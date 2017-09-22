@@ -87,3 +87,12 @@ string Ciudadano::getSangre() {
 void Ciudadano::setSangre(string psangre) {
 	sangre = psangre;
 }
+
+Quirk* Ciudadano::getQuirk() {
+	return quirk;
+}
+
+void Ciudadano::setQuirk(Quirk* pquirk) {
+	quirk = pquirk;
+}
+

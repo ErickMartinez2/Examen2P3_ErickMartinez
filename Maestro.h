@@ -1,6 +1,7 @@
 #ifndef MAESTRO_H
 #define MAESTRO_H
 #include "Ciudadano.h"
+#include "Quirk.h"
 #include <string>
 using namespace std;
 

@@ -1,6 +1,7 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 #include "Ciudadano.h"
+#include "Maestro.h"
 #include <string>
 using namespace std;
 
@@ -9,6 +10,7 @@ class Estudiante: public Ciudadano {
 		double promedio;
 		string homeroom;
 		string classroom;
+		Maestro* maestro;
 	public:
 		Estudiante();
 		Estudiante(string, int, string, int, string, string, string, string, string, double, string, string);
@@ -18,8 +20,8 @@ class Estudiante: public Ciudadano {
 		void setPromedio(double);
 		string getClassroom();
 		void setClassroom(string);
-		//string getMaestro();
-		//void setMaestro(string);
+		Maestro* getMaestro();
+		void setMaestro(Maestro*);
 };
 
 #endif
