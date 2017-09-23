@@ -14,13 +14,13 @@ void LinkedList::insert(Ciudadano* ciudadano2) {
 int LinkedList::getSize() {
 	int contador = 0;
 	vector<Ciudadano*> ciudadano2;
-	do {
+	while(raiz != NULL) {
 		Node* n = raiz;
 		Ciudadano* ciudadano = n -> ciudadano;
 		ciudadano2.push_back(ciudadano);
 		raiz = raiz -> nodo;
 		contador++;
-	} while (raiz != NULL);
+	};
 	for (int i = ciudadano2.size() - 1; i >= 0; i--) {
 		Node* n = new Node();
 		n -> ciudadano = ciudadano2[i];
