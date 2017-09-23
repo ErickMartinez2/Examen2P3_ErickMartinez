@@ -4,6 +4,7 @@
 #include "Maestro.h"
 #include <string>
 using namespace std;
+class Maestro;
 
 class Estudiante: public Ciudadano {
 	private:

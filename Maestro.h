@@ -1,9 +1,12 @@
 #ifndef MAESTRO_H
 #define MAESTRO_H
 #include "Ciudadano.h"
+#include "Estudiante.h"
 #include "Quirk.h"
 #include <string>
+#include <vector>
 using namespace std;
+class Estudiante;
 
 class Maestro: public Ciudadano {
 	private:
@@ -12,6 +15,7 @@ class Maestro: public Ciudadano {
 		string departamento;
 		string alias;
 		double sueldo;
+		vector<Estudiante*> estudiantes;
 	public:
 		Maestro();
 		Maestro(string, int, string, int, string, string, string, string, string, string, string, string, string, double);
@@ -25,6 +29,8 @@ class Maestro: public Ciudadano {
 		void setAlias(string);
 		double getSueldo();
 		void setSueldo(double);
+		vector<Estudiante*> getEstudiantes();
+		void setEstudiantes(vector<Estudiante*>);
 };
 
 #endif

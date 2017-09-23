@@ -52,4 +52,11 @@ void Maestro::setSueldo(double psueldo) {
 	sueldo = psueldo;
 }
 
+vector<Estudiante*> Maestro::getEstudiantes() {
+	return estudiantes;
+}
+
+void Maestro::setEstudiantes(vector<Estudiante*> pestudiantes) {
+	estudiantes = pestudiantes;
+}
 

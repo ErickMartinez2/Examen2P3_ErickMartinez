@@ -160,7 +160,7 @@ int main() {
 					   cout << "Maestro Agregado!" << endl;
 				   }break;
 			case 2:{
-						cout << "-> Despedir Maestro" << endl;
+					   cout << "-> Despedir Maestro" << endl;
 					   int size = ciudadanos.getSize();
 					   for (int i = 1; i <= size; i++) {
 						   if (typeid(*ciudadanos.get(i, size)) == typeid(Maestro)) {
@@ -227,6 +227,11 @@ int main() {
 					   Maestro* maestro = dynamic_cast<Maestro*>(ciudadano_maestro);
 					   Estudiante* ciudadano = new Estudiante(nombre, edad, fecha, altura, pelo, ojos, likes, dislikes, sangre, promedio, homeroom, classroom);
 					   ciudadano -> setMaestro(maestro);
+					   vector<Estudiante*> mis_estudiantes = maestro -> getEstudiantes();
+					   mis_estudiantes.push_back(ciudadano);
+					   ciudadanos.remove(num_maestro, size);
+					   maestro -> setEstudiantes(mis_estudiantes);
+					   ciudadanos.insert(maestro);
 					   cout << endl;
 					   cout << "-> Clasificacion Quirks" << endl
 						   << "1. Emmitter" << endl
@@ -291,7 +296,7 @@ int main() {
 					   cout << "Estudiante Agregado!" << endl;
 				   }break;
 			case 4:{
-						cout << "-> Expusar Alumno" << endl;
+					   cout << "-> Expusar Alumno" << endl;
 					   int size = ciudadanos.getSize();
 					   for (int i = 1; i <= size; i++) {
 						   if (typeid(*ciudadanos.get(i, size)) == typeid(Estudiante)) {
@@ -306,16 +311,16 @@ int main() {
 					   cout << "Alumno Expulsado!" << endl;
 				   }break;
 			case 5:{
-						cout << "-> Lista de Maestros" << endl;
+					   cout << "-> Lista de Maestros" << endl;
 					   int size = ciudadanos.getSize();
-						for (int i = 1; i <= size; i++) {
+					   for (int i = 1; i <= size; i++) {
 						   if (typeid(*ciudadanos.get(i, size)) == typeid(Maestro)) {
 							   cout << "- Maestro: " << ciudadanos.get(i, size) -> getNombre() << endl;
 						   }
 					   }
 				   }break;
 			case 6:{
-						cout << "-> Lista de Estudiantes" << endl;
+					   cout << "-> Lista de Estudiantes" << endl;
 					   int size = ciudadanos.getSize();
 					   for (int i = 1; i <= size; i++) {
 						   if (typeid(*ciudadanos.get(i, size)) == typeid(Estudiante)) {
@@ -324,13 +329,79 @@ int main() {
 					   }
 				   }break;
 			case 7:{
-
+					   cout << "-> Sueldo Promedio Maestros" << endl;
+					   int size = ciudadanos.getSize();
+					   int contador_maestros = 0;
+					   double acumulador_sueldos;
+					   double promedio;
+					   for (int i = 1; i <= size; i++) {
+						   if (typeid(*ciudadanos.get(i, size)) == typeid(Maestro)) {
+							   Maestro* maestro = dynamic_cast<Maestro*>(ciudadanos.get(i, size));
+							   acumulador_sueldos += maestro -> getSueldo();
+							   contador_maestros++;
+						   }
+					   }
+					   promedio = acumulador_sueldos / contador_maestros;
+					   cout << "Promedio Estimado: " << promedio << endl;
 				   }break;
 			case 8:{
-
+					   cout << "-> Sueldo Promedio Estudiantes" << endl;
+					   int size = ciudadanos.getSize();
+					   int contador_estudiantes = 0;
+					   double acumulador_promedios;
+					   double promedio;
+					   for (int i = 1; i <= size; i++) {
+						   if (typeid(*ciudadanos.get(i, size)) == typeid(Estudiante)) {
+							   Estudiante* estudiante = dynamic_cast<Estudiante*>(ciudadanos.get(i, size));
+							   acumulador_promedios += estudiante -> getPromedio();
+							   contador_estudiantes++;
+						   }
+					   }
+					   promedio = acumulador_promedios / contador_estudiantes;
+					   cout << "Promedio Estimado: " << promedio << endl;
 				   }break;
-			case 9:{
+			case 9:{	  
+					   cout << "-> Lista de Estudiantes" << endl;
+					   int size = ciudadanos.getSize();
+					   cout << "- Dept. of Heroes " << endl;
+					   for (int i = 1; i <= size; i++) {
+						   if (typeid(*ciudadanos.get(i, size)) == typeid(Maestro)) {
+							   Maestro* maestro = dynamic_cast<Maestro*>(ciudadanos.get(i, size));
+							   if (maestro -> getDepartamento() == "Dept. of Heroes"){
+								   vector<Estudiante*> mis_estudiantes = maestro -> getEstudiantes();
+								   for (int j = 0; j < mis_estudiantes.size(); j++) {
 
+								   }
+								   cout << "  Estudiante: " << ciudadanos.get(i, size) -> getNombre() << endl;
+							   }
+						   }
+					   }
+						cout << "- Dept. of Support " << endl;
+					   for (int i = 1; i <= size; i++) {
+						   if (typeid(*ciudadanos.get(i, size)) == typeid(Maestro)) {
+							   Maestro* maestro = dynamic_cast<Maestro*>(ciudadanos.get(i, size));
+							   if (maestro -> getDepartamento() == "Dept. of Support"){
+								   vector<Estudiante*> mis_estudiantes = maestro -> getEstudiantes();
+								   for (int j = 0; j < mis_estudiantes.size(); j++) {
+
+								   }
+								   cout << "  Estudiante: " << ciudadanos.get(i, size) -> getNombre() << endl;
+							   }
+						   }
+					   }
+						cout << "- Dept. of Management " << endl;
+					   for (int i = 1; i <= size; i++) {
+						   if (typeid(*ciudadanos.get(i, size)) == typeid(Maestro)) {
+							   Maestro* maestro = dynamic_cast<Maestro*>(ciudadanos.get(i, size));
+							   if (maestro -> getDepartamento() == "Dept. of Management"){
+								   vector<Estudiante*> mis_estudiantes = maestro -> getEstudiantes();
+								   for (int j = 0; j < mis_estudiantes.size(); j++) {
+
+								   }
+								   cout << "  Estudiante: " << ciudadanos.get(i, size) -> getNombre() << endl;
+							   }
+						   }
+					   }
 				   }break;
 			case 10:{
 
